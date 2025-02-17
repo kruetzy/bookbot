@@ -2,12 +2,14 @@ def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
         #print(file_contents)
-        count_words(file_contents)
-        count_chars(file_contents)
+        word_count = count_words(file_contents)
+        sorted_dict = count_chars(file_contents)
+        print("Word Count:", word_count)
+        print(sorted_dict)
     
 def count_words(book):
     words = book.split()
-    print(len(words))
+    return len(words)
     
 
 def count_chars(book):
@@ -24,7 +26,7 @@ def count_chars(book):
         else:
             count_dict[char] += 1
     sorted_dict = dict(sorted(count_dict.items()))
-    print(sorted_dict)
+    return sorted_dict
 
 
 
